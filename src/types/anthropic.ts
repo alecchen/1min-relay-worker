@@ -61,6 +61,9 @@ export interface AnthropicMessageRequest {
   model: string;
   messages: AnthropicMessage[];
   system?: string | AnthropicTextContent[];
+  // max_tokens is validated (required by the Anthropic spec) but, like the
+  // other sampling parameters, NOT forwarded upstream — the 1min.ai API has
+  // no sampling parameters.
   max_tokens: number;
   temperature?: number;
   top_p?: number;

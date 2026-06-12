@@ -50,8 +50,6 @@ export class ChatHandler extends BaseTextHandler {
         processedMessages,
         cleanModel,
         apiKey,
-        requestBody.temperature,
-        requestBody.max_tokens,
         webSearchConfig,
       );
     } else {
@@ -59,8 +57,6 @@ export class ChatHandler extends BaseTextHandler {
         processedMessages,
         cleanModel,
         apiKey,
-        requestBody.temperature,
-        requestBody.max_tokens,
         webSearchConfig,
       );
     }
@@ -70,16 +66,12 @@ export class ChatHandler extends BaseTextHandler {
     messages: Message[],
     model: string,
     apiKey: string,
-    temperature?: number,
-    maxTokens?: number,
     webSearchConfig?: WebSearchConfig,
   ): Promise<Response> {
     const data = await this.sendNonStreamingRequest(
       messages,
       model,
       apiKey,
-      temperature,
-      maxTokens,
       webSearchConfig,
     );
 
@@ -91,16 +83,12 @@ export class ChatHandler extends BaseTextHandler {
     messages: Message[],
     model: string,
     apiKey: string,
-    temperature?: number,
-    maxTokens?: number,
     webSearchConfig?: WebSearchConfig,
   ): Promise<Response> {
     const response = await this.sendStreamingRequest(
       messages,
       model,
       apiKey,
-      temperature,
-      maxTokens,
       webSearchConfig,
     );
 

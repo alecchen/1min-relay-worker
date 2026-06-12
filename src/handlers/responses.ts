@@ -70,8 +70,6 @@ export class ResponseHandler extends BaseTextHandler {
       return this.handleStreamingResponse(
         processedMessages,
         cleanModel,
-        requestBody.temperature,
-        requestBody.max_tokens,
         requestBody.response_format,
         requestBody.reasoning_effort,
         apiKey,
@@ -82,8 +80,6 @@ export class ResponseHandler extends BaseTextHandler {
     return this.handleNonStreamingResponse(
       processedMessages,
       cleanModel,
-      requestBody.temperature,
-      requestBody.max_tokens,
       requestBody.response_format,
       requestBody.reasoning_effort,
       apiKey,
@@ -129,8 +125,6 @@ export class ResponseHandler extends BaseTextHandler {
   private async handleNonStreamingResponse(
     messages: Message[],
     model: string,
-    temperature?: number,
-    maxTokens?: number,
     responseFormat?: ResponseFormat,
     reasoningEffort?: ResponseRequest["reasoning_effort"],
     apiKey?: string,
@@ -146,8 +140,6 @@ export class ResponseHandler extends BaseTextHandler {
       enhancedMessages,
       model,
       apiKey || "",
-      temperature,
-      maxTokens,
       webSearchConfig,
     );
 
@@ -162,8 +154,6 @@ export class ResponseHandler extends BaseTextHandler {
   private async handleStreamingResponse(
     messages: Message[],
     model: string,
-    temperature?: number,
-    maxTokens?: number,
     responseFormat?: ResponseFormat,
     reasoningEffort?: ResponseRequest["reasoning_effort"],
     apiKey?: string,
@@ -179,8 +169,6 @@ export class ResponseHandler extends BaseTextHandler {
       enhancedMessages,
       model,
       apiKey || "",
-      temperature,
-      maxTokens,
       webSearchConfig,
     );
 
