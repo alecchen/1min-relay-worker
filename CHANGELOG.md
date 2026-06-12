@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.2] - 2026-06-12
+
 ### Removed
 - **Dead sampling parameters**: Removed unused `temperature`/`max_tokens` plumbing through `BaseTextHandler`, all chat/messages/responses handlers, and `buildChatRequestBody` — the 1min.ai Chat with AI API has no sampling parameters, so these values were silently dropped. Request types still accept them for OpenAI/Anthropic SDK compatibility, now explicitly documented as not forwarded upstream. (`max_tokens` remains validated as required on `/v1/messages` per the Anthropic spec.)
 
