@@ -23,16 +23,12 @@ export abstract class BaseTextHandler {
     messages: Message[],
     model: string,
     apiKey: string,
-    temperature?: number,
-    maxTokens?: number,
     webSearchConfig?: WebSearchConfig,
   ): Promise<OneMinChatResponse> {
     const requestBody = await this.apiService.buildChatRequestBody(
       messages,
       model,
       apiKey,
-      temperature,
-      maxTokens,
       webSearchConfig,
     );
 
@@ -52,16 +48,12 @@ export abstract class BaseTextHandler {
     messages: Message[],
     model: string,
     apiKey: string,
-    temperature?: number,
-    maxTokens?: number,
     webSearchConfig?: WebSearchConfig,
   ): Promise<Response> {
     const requestBody = await this.apiService.buildChatRequestBody(
       messages,
       model,
       apiKey,
-      temperature,
-      maxTokens,
       webSearchConfig,
     );
 

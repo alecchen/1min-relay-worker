@@ -55,7 +55,6 @@ export class MessagesHandler extends BaseTextHandler {
       return this.handleStreamingMessage(
         processedMessages,
         cleanModel,
-        requestBody,
         apiKey,
         webSearchConfig,
       );
@@ -63,7 +62,6 @@ export class MessagesHandler extends BaseTextHandler {
       return this.handleNonStreamingMessage(
         processedMessages,
         cleanModel,
-        requestBody,
         apiKey,
         webSearchConfig,
       );
@@ -136,7 +134,6 @@ export class MessagesHandler extends BaseTextHandler {
   private async handleNonStreamingMessage(
     messages: Message[],
     model: string,
-    originalRequest: AnthropicMessageRequest,
     apiKey: string,
     webSearchConfig?: WebSearchConfig,
   ): Promise<Response> {
@@ -144,8 +141,6 @@ export class MessagesHandler extends BaseTextHandler {
       messages,
       model,
       apiKey,
-      originalRequest.temperature,
-      originalRequest.max_tokens,
       webSearchConfig,
     );
 
@@ -164,7 +159,6 @@ export class MessagesHandler extends BaseTextHandler {
   private async handleStreamingMessage(
     messages: Message[],
     model: string,
-    originalRequest: AnthropicMessageRequest,
     apiKey: string,
     webSearchConfig?: WebSearchConfig,
   ): Promise<Response> {
@@ -172,8 +166,6 @@ export class MessagesHandler extends BaseTextHandler {
       messages,
       model,
       apiKey,
-      originalRequest.temperature,
-      originalRequest.max_tokens,
       webSearchConfig,
     );
 

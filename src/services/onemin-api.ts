@@ -188,12 +188,12 @@ export class OneMinApiService {
     return data as OneMinImageResponse;
   }
 
+  // Note: the 1min.ai Chat with AI API has no sampling parameters
+  // (temperature/max_tokens) — see docs.1min.ai/docs/api/chat-with-ai-api.
   async buildChatRequestBody(
     messages: Message[],
     model: string,
     apiKey: string,
-    _temperature?: number,
-    _maxTokens?: number,
     webSearchConfig?: WebSearchConfig,
   ): Promise<OneMinRequestBody> {
     // Process images from the latest user message

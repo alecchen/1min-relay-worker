@@ -16,6 +16,8 @@ export interface ChatCompletionRequest {
           };
         }>;
   }>;
+  // Accepted for OpenAI SDK compatibility but NOT forwarded upstream:
+  // the 1min.ai Chat with AI API has no sampling parameters.
   temperature?: number;
   max_tokens?: number;
   stream?: boolean;
@@ -57,6 +59,8 @@ export interface ResponseRequest {
         }>;
   }>;
   instructions?: string;
+  // Accepted for SDK compatibility but NOT forwarded upstream (no sampling
+  // parameters in the 1min.ai API).
   temperature?: number;
   max_tokens?: number;
   stream?: boolean;
